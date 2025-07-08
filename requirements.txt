@@ -6,4 +6,7 @@ duckduckgo-search==4.1.1
 python-dotenv==1.0.0
 phoenix-otel==0.1.0
 tiktoken==0.5.1
-textblob==0.17.1 
+textblob==0.17.1
+flask==2.3.3
+flask-cors==4.0.0
+gunicorn==21.2.0 

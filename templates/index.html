@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinSight - AI-Powered Financial Research</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <h1>FinSight</h1>
+                </div>
+                <p class="tagline">AI-Powered Financial Research & Analysis</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Analysis Form -->
+            <section class="analysis-section">
+                <div class="card">
+                    <h2><i class="fas fa-search"></i> Start Financial Analysis</h2>
+                    <form id="analysisForm" class="analysis-form">
+                        <div class="form-group">
+                            <label for="companyInput">
+                                <i class="fas fa-building"></i> Company Name or Ticker
+                            </label>
+                            <input 
+                                type="text" 
+                                id="companyInput" 
+                                name="company_input" 
+                                placeholder="e.g., Microsoft, MSFT, Tesla, TSLA"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sectorInput">
+                                <i class="fas fa-industry"></i> Sector (Optional)
+                            </label>
+                            <select id="sectorInput" name="sector">
+                                <option value="">Select a sector (optional)</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Consumer Goods">Consumer Goods</option>
+                                <option value="Energy">Energy</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Real Estate">Real Estate</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Transportation">Transportation</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-rocket"></i> Start Analysis
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Loading Section -->
+            <section id="loadingSection" class="loading-section" style="display: none;">
+                <div class="card">
+                    <div class="loading-content">
+                        <div class="spinner"></div>
+                        <h3>Analyzing <span id="loadingCompany"></span>...</h3>
+                        <p>Our AI agents are gathering financial data, news, and market insights.</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="status-messages">
+                            <div class="status-item">
+                                <i class="fas fa-database"></i>
+                                <span>Fetching financial data...</span>
+                            </div>
+                            <div class="status-item">
+                                <i class="fas fa-newspaper"></i>
+                                <span>Researching latest news...</span>
+                            </div>
+                            <div class="status-item">
+                                <i class="fas fa-brain"></i>
+                                <span>Synthesizing insights...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section" style="display: none;">
+                <div class="card">
+                    <div class="results-header">
+                        <h2><i class="fas fa-chart-bar"></i> Analysis Results</h2>
+                        <button id="newAnalysisBtn" class="btn-secondary">
+                            <i class="fas fa-plus"></i> New Analysis
+                        </button>
+                    </div>
+                    
+                    <div class="company-info">
+                        <h3 id="resultCompany"></h3>
+                        <span id="resultSector" class="sector-badge"></span>
+                    </div>
+                    
+                    <div id="resultContent" class="result-content">
+                        <!-- Results will be populated here -->
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button id="downloadBtn" class="btn-secondary">
+                            <i class="fas fa-download"></i> Download Report
+                        </button>
+                        <button id="shareBtn" class="btn-secondary">
+                            <i class="fas fa-share"></i> Share
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="errorSection" class="error-section" style="display: none;">
+                <div class="card error-card">
+                    <div class="error-content">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Analysis Failed</h3>
+                        <p id="errorMessage"></p>
+                        <button id="retryBtn" class="btn-primary">
+                            <i class="fas fa-redo"></i> Try Again
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 FinSight. Powered by AI & Financial Intelligence.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html> 
