@@ -13,9 +13,18 @@ import json
 from datetime import datetime
 from dotenv import load_dotenv
 from evaluations import FinSightEvaluator
+from traceloop.sdk import Traceloop
+import warnings
+warnings.filterwarnings("ignore")
 
 # Load environment variables
 load_dotenv()
+
+# Initialize Traceloop for tracing
+Traceloop.init(
+    disable_batch=True,
+    api_key=os.getenv("TRACELOOP_API_KEY")
+)
 
 def load_eval_set_from_csv(filename="eval_set.csv"):
     """Load evaluation set from a CSV file."""
